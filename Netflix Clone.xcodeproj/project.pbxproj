@@ -21,6 +21,7 @@
 		F0BCE79128BE7CF700F51888 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BCE79028BE7CF700F51888 /* UpcomingViewController.swift */; };
 		F0BCE79328BE7D2400F51888 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BCE79228BE7D2400F51888 /* SearchViewController.swift */; };
 		F0BCE79528BE7D4600F51888 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BCE79428BE7D4600F51888 /* DownloadsViewController.swift */; };
+		F0DF85C928C7705A001C1DF6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF85C828C7705A001C1DF6 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		F0BCE79028BE7CF700F51888 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		F0BCE79228BE7D2400F51888 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F0BCE79428BE7D4600F51888 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		F0DF85C828C7705A001C1DF6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		F0A7CF4228BFA13000EC5DE1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F0DF85C828C7705A001C1DF6 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				F0A00ABD28C216F70018D9BE /* APICaller.swift in Sources */,
 				F0A7CF4728BFB66C00EC5DE1 /* HeroHeaderUIView.swift in Sources */,
 				F0BCE79528BE7D4600F51888 /* DownloadsViewController.swift in Sources */,
+				F0DF85C928C7705A001C1DF6 /* Extensions.swift in Sources */,
 				F0BCE77A28BE7A8200F51888 /* AppDelegate.swift in Sources */,
 				F0BCE77C28BE7A8200F51888 /* SceneDelegate.swift in Sources */,
 				F0BCE79128BE7CF700F51888 /* UpcomingViewController.swift in Sources */,
