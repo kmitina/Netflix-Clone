@@ -125,20 +125,37 @@ class APICaller {
         guard let url = URL(string: "\(Constants.baseURL)/3/search/movie?api_key=\(Constants.API_KEY)&query=\(query)") else {
             return
         }
-                
-                let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-                    guard let data = data, error == nil else {
-                        return
-                    }
-                    do {
-                        let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
-                        completion(.success(results.results))
-                    } catch {
-                        completion(.failure(APIError.failedToget))
-                    }
-                }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                completion(.success(results.results))
+            } catch {
+                completion(.failure(APIError.failedToget))
+            }
+        }
         task.resume()
     }
     
+    func getMovie(with query: String) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let url = URL(string: "\(Constants.YoutubeBaseURL)q=\(query)&key=\(Constants.youtubeAPI_KEY)") else { return }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                print(results)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
     
 }
