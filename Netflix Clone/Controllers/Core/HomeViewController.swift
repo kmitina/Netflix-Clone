@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.tableHeaderView = headerView
         
-        APICaller.shared.getMovie(with: "Harry potter")
         
     }
     
