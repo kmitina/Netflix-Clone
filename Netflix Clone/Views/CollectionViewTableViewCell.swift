@@ -12,8 +12,8 @@ protocol CollectionViewTableViewCellDelegate: AnyObject {
 }
 
 class CollectionViewTableViewCell: UITableViewCell {
-
-   static let identifier = "CollectionViewTableViewCell"
+    
+    static let identifier = "CollectionViewTableViewCell"
     
     weak var delegate: CollectionViewTableViewCellDelegate?
     
@@ -54,8 +54,16 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     
     private func downloadTitleAt(indexPath: IndexPath) {
-        print("Downloading \(titles[indexPath.row].original_title)")
-    }
+        
+        DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
+            switch result {
+            case .success():
+                print("download to Database")
+            case . failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    } 
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -80,7 +88,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         
         let title = titles[indexPath.row]
         guard let titleName = title.original_title ?? title.original_name else {
-            return 
+            return
         }
         
         APICaller.shared.getMovie(with: titleName + " trailer") { [weak self] result in
@@ -110,6 +118,8 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 }
                 return UIMenu(title: "", options: .displayInline, children: [downloadAction])
             }
-            return config
+        return config
     }
+    
+    
 }
